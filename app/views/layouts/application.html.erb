@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookstore</title>
+    <title><%= @page_title ? @page_title : 'Welcome' %> | The Bookstore</title>
 
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
       <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -26,18 +26,43 @@
             <a class="nav-item nav-link" href="<%= about_path(@about) %>">About</a>
          </div>
 
-        <div class="dropdown">
-          <a class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Add new
+        <div class="dropdown" style="margin-left: auto;">
+          <a class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="text-align:center;">Add new
           <span class="caret"></span></a>
-          <ul class="dropdown-menu navbar-right">
-             <li><a href="<%= new_book_path(@boook) %>"></a>Boook</li>
-             <li><a href="<%= new_category_path(@category) %>"></a>Category</li>
-             <li><a href="<%= new_author_path(@author) %>"></a>Author</li>
-             <li><a href="<%= new_publisher_path(@publisher) %>"></a>Publisher</li>
+          <ul class="dropdown-menu">
+             <li><a href="<%= new_book_path(@boook) %>">Book</a></li>
+             <li><a href="<%= new_category_path(@category) %>">Categoty</a></li>
+             <li><a href="<%= new_author_path(@author) %>">Author</a></li>
+             <li><a href="<%= new_publisher_path(@publisher) %>">Publisher</a></li>
           </ul>
         </div>
       </div>
     </nav>
-    <%= yield %>
+
+    <header>
+      <div class="container">
+        <h1>The BookStore <small><%= @page_title ? @page_title : 'Welcome' %></small></h1>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <%= yield %>
+          </div>
+          <div class="col-md-4">
+            <%= render 'partials/sidebar' %>
+          </div>
+        </div>
+      </div>
+     </section>
+
+     <footer>
+       <div class="container">
+         <p>Copyright &copy; 2020, All Rights Reseveed</p>
+       </div>
+     </footer>
+
   </body>
 </html>

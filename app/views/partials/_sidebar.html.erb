@@ -1,0 +1,18 @@
+<% if params[:controller] == 'about' %>
+<div class="col-md-8">
+<h3> Location Info</h3>
+	  <ul>
+	    <li>The Book Store</li>
+	    <li>Unit 2</li>
+	    <li>phone:</li>
+	    <li>Email:abc@gmail.com</li>
+    </ul>
+</div>
+<% end %>
+<% if params[:controller] == 'books' && params[:action] == 'index' %>
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+</div>
+<% end %>
